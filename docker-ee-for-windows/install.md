@@ -132,7 +132,22 @@ describes environment setup in detail.
 
 * Docker Container Platform for Windows Server 2016 [articles and blog
 posts](https://www.docker.com/microsoft/) on the Docker website.
-
+ 
+## Dockerd runtime on an alternative location
+ 
+Docker daemon uses "C:\\ProgramData\\docker" for runtime by default.  You can use an alternative location with following steps.
+ 
+ 1. Stop and unregister existing Docker Service.
+```ps
+PS> Stop-Service docker
+PS> dockerd --unregister-service
+```
+ 2. Register the service again with alternative location and restart
+```ps
+PS> dockerd --register-service -g “D:\\mydocker”
+PS> Start-Service docker
+```
+ 
 ## Where to go next
 
 * [Getting started](/docker-for-windows/index.md) provides an overview of
