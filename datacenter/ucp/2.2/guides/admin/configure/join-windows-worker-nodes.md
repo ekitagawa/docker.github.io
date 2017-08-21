@@ -131,8 +131,22 @@ In a PowerShell terminal running as Administrator, run these commands
 to add rules to the Windows firewall.
 
 ```ps
-PS> netsh advfirewall firewall add rule name="docker_local" dir=in action=allow protocol=TCP localport=2376
-PS> netsh advfirewall firewall add rule name="docker_proxy" dir=in action=allow protocol=TCP localport=12376
+PS> # Opening port 2376 in the Windows firewall for inbound traffic
+PS> netsh advfirewall firewall add rule name="docker_2376_in" dir=in action=allow protocol=TCP localport=2376 | Out-Null;
+
+PS> # Opening port 12376 in the Windows firewall for inbound traffic
+PS> netsh advfirewall firewall add rule name="docker_12376_in" dir=in action=allow protocol=TCP localport=12376 | Out-Null;
+
+PS> # Opening port 2377 in the Windows firewall for inbound traffic
+PS> netsh advfirewall firewall add rule name="docker_2377_in" dir=in action=allow protocol=TCP localport=2377 | Out-Null;
+
+PS> # Opening port 4789 in the Windows firewall for inbound and outbound traffic
+PS> netsh advfirewall firewall add rule name="docker_4789_in" dir=in action=allow protocol=TCP localport=4789 | Out-Null;
+PS> netsh advfirewall firewall add rule name="docker_4789_out" dir=out action=allow protocol=TCP localport=4789 | Out-Null;
+
+PS> # Opening port 7946 in the Windows firewall for inbound and outbound traffic
+PS> netsh advfirewall firewall add rule name="docker_7946_in" dir=in action=allow protocol=TCP localport=7946 | Out-Null;
+PS> netsh advfirewall firewall add rule name="docker_7946_out" dir=out action=allow protocol=TCP localport=7946 | Out-Null;
 ```
 
 ###  Set up certs for the dockerd service
