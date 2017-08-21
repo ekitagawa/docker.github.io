@@ -142,3 +142,4 @@ same steps as before, but don't check the **Add node as a manager** option.
 
 * [Use your own TLS certificates](../configure/use-your-own-tls-certificates.md)
 * [Scale your cluster](../configure/scale-your-cluster.md)
+* [Join Windows Woker Nodes](.../configure/join-windows-worker-nodes.md)
