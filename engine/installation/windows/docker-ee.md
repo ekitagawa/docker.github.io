@@ -129,14 +129,14 @@ installs, or install on air-gapped systems.
 
 ## Install a specific version
 
-To install a specific Docker version, you can use the `MaximumVersion` and `MinimumVersion` flags. For example:
+To install a specific Docker version, you can use the `MaximumVersion`,`MinimumVersion`, or `RequiredVersion` flags. For example:
 
 ```PowerShell
-Install-Package -Name docker -ProviderName DockerProvider -Force -MaximumVersion 17.03
+Install-Package -Name docker -ProviderName DockerProvider -Force -RequiredVersion 17.06.2-ee-4
 ...
 Name                           Version          Source           Summary
 ----                           -------          ------           -------
-Docker                         17.03.0-ee       Docker           Contains Docker EE for use with Windows Server 2016...
+Docker                         17.06.2-ee-4     Docker           Docker for Windows Server 2016
 ```
 
 ## Update Docker EE
